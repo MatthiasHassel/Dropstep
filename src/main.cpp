@@ -2,15 +2,20 @@
 #include "Input.h"
 
 Input input;
+std::array<int,8> PotVal;
+std::array<int,3> EncVal;
+std::array<bool,3> ButtonState;
 
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
 }
 
 void loop()
 {
-  input.updateAll();
+  PotVal = input.getPotVal();
+  EncVal = input.getEncVal();
+  ButtonState = input.getButtonState(); 
 }
 
 
