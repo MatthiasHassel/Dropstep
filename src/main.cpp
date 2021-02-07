@@ -1,5 +1,22 @@
 #include <Arduino.h>
-#include "Sequencer.h"
+#include "Input.h"
+
+Input input;
+
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  input.updateAll();
+}
+
+
+
+
+/*#include "Sequencer.h"
 #include "CoinSensor.h"
 #include "Leds.h"
 #include "Synth.h"
@@ -84,3 +101,4 @@ void loop()
   
   synth1.serialmonitor();
 }
+*/
