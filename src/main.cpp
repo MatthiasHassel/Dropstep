@@ -2,9 +2,10 @@
 #include "Input.h"
 
 Input input;
-std::array<int,8> PotVal;
-std::array<int,3> EncVal;
-std::array<bool,3> ButtonState;
+std::array<int,8>   PotVal;       //0Tempo, 1Vol, 2Attack, 3Release, 4Bitcrusher, 5Delay, 6Reverb, 7Lowpass
+std::array<int,3>   EncVal;       //0SelectedStep, 1Pitch, 2Volume
+std::array<bool,48>  StepState;  //toggling switch
+std::array<bool, 3> ButtonVal;    //actual button value
 
 void setup()
 {
@@ -13,9 +14,8 @@ void setup()
 
 void loop()
 {
-  PotVal = input.getPotVal();
-  EncVal = input.getEncVal();
-  ButtonState = input.getButtonState(); 
+  input.updateAll();
+  input.testIO();
 }
 
 
